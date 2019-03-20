@@ -103,7 +103,7 @@ public class Card {
      */
     @Override
     public String toString() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-        return null;
+
+        return rank + " of " + suit + " (point value = " + pointValue + ")";
     }
 }
