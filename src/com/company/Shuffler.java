@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.*;
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -52,27 +52,23 @@ public class Shuffler {
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void perfectShuffle(int[] values) {
-        int midway = values.length / 2;
-        int[] valuesP1 = new int[midway];
-        int[] valuesP2 = new int[midway];
-        int[] completeArray = new int [values.length];
+        int[] shuffledDeck = new int[52];
 
-        for (int i = 0; i < midway; i++) {
-            valuesP1[i] = values[i];
+        int k = 0;
+        for (int i = 0; i < (values.length + 1) / 2; i++) {
+            shuffledDeck[k] = values[i];
+            k += 2;
+        }
+        k = 1;
+        for (int i = (values.length + 1) / 2; i < values.length; i++) {
+            shuffledDeck[k] = values[i];
+            k += 2;
+        }
+        for (int i = 0; i < values.length; i++) {
+            values[i] = shuffledDeck[i];
         }
 
-        for (int i = midway; i < values.length - 1; i++) {
-            valuesP2[i] = values[i];
-        }
 
-        for (int i = 0; i < values.length - 1; i++) {
-            if(i % 2 == 0){
-                completeArray[i] = valuesP1[i];
-            }
-            else{
-                completeArray[i] = valuesP2[i];
-            }
-        }
 
     }
 
@@ -88,6 +84,14 @@ public class Shuffler {
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void selectionShuffle(int[] values) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+        Random random1 = new Random();
+        for (int k = values.length - 1; k > 1; k--) {
+           int r = random1.nextInt(k);
+           int temp = values[k];
+           values[k] = values[r];
+           values[r] = temp;
+        }
+
+        }
+
     }
-}
