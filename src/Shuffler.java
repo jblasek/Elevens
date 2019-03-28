@@ -1,4 +1,3 @@
-package com.company;
 import java.util.*;
 /**
  * This class provides a convenient way to test shuffling methods.
